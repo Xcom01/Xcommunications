@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 2" />
+    <title>Xcommunications</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+       input {
+            padding: 35px;
+            border-radius: 17px;
+            border: 2px solid #3498db;
+            margin-right: 10px;
+            width: 65%;
+            color: black;
+            font-size: 50px;
+        }
+
+        .search-button {
+            padding: 35px;
+            border-radius: 17px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 50px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: none;
+            background-color: #f0f0f0;
+            margin: none;
+            font-family: Times New Roman;
+            visibility: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="#f0f0f0"/><text x="50%" y="50%" font-size="120" fill="lightgreen" text-anchor="middle" alignment-baseline="middle">X</text></svg>');
+            background-size: cover;
+          font-size: 45px;
+        }
+
+
+h1 {
+    margin: 0;
+}
+
+.news-item, .blog-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.news-item h3, .blog-item h3 {
+    margin: 0;
+}
+
+.news-item p, .blog-item p {
+    margin: 5px 0 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: flex-start;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    position: none;
+    width: 100%;
+    bottom: none;
+}
+  
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 200px;
+            height: 100%;
+            width: 200px;
+            background-color: #2c3e50;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.3s;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 20px 0;
+        }
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+  
+        /*.menu-button {
+            position: fixed;
+            top: 20px;
+            left: 2%;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 40px;
+            cursor: pointer;
+            border-radius: 11px;
+            width: 160px;
+          font-size: 35px;
+          width: 15%;
+          text-align: center;
+        }
+  
+       
+      .close-button:hover {
+           color: black;
+        backgroung-color: white;
+      }
+  
+  /* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+      
+        .homepage {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            visibility: visible;
+        }
+  
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 15px;
+        }
+  
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+  
+        .toggle-button {
+            padding: 30px;
+            font-size: 10px;
+            cursor: none;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 50px;
+        }
+  
+    .toggle-button:hover {
+      background-color: blue;
+      color: none;
+    }
+ 
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.contact-form label {
+    margin: 10px 0 5px;
+}
+
+.contact-details, .social-media {
+    margin-top: 20px;
+}
+
+.contact-details h3, .social-media h3 {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: grey;
+    border: 2px solid black;
+}
+
+.social-media a:hover {
+    background-color: white;
+     color: grey;
+}
+  footer {
+    text-align: center;
+  }
+
+    </style>
+</head>
+<body>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+  
+  <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+  <!--<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+  <h2>Collapsed Sidebar</h2>
+  <p>Content...</p>
+</div>-->
+  
+  <!--<li><a style="font-size: 20px" href="mailto: matrixcrusaders@gmail.com">Contact</a></li>-->
+    
+    <section class="homepage">
+ 
+      <input type="text" id="search-box" placeholder="Search...">
+            <button class="search-button" onclick="googleSearch()">Search</button>
+        <div id="welcome-description">
+          <!--<h1 class="welcome-text">Welcome</h1>-->
+            <p>Welcome to <strong style="color: yellowgreen">Xcommunications</strong><br> We are delighted to have you here.
+                Explore our world of innovation and <a href="https://www.google.com/search?q=creativity&oq=creativity&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAtIBCTEyOTE0ajBqNKgCAbACAQ&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">creativity</a> as we bring your ideas to life through
+                cutting-edge <a href="https://www.google.com/search?q=technology&oq=technology+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAtIBCDk1ODRqMGo5qAIAsAIB&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">technology</a> and exceptional <a href="https://www.google.com/search?q=software+design&oq=software+design&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTEwOTc0ajBqOagCAbACAQ&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">design</a>.</p>
+            <button class="toggle-button" onclick="toggleVisibility('description')"><!--Toggle Description-->Open Description</button>
+            <div id="description" class="hidden-content">
+                <h2 class="description-text">Description</h2>
+                <p>At <strong>Xcommunications</strong>, we specialize in developing high-quality <a href="https://www.google.com/search?q=apps&oq=apps&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAtIBCDQwNzlqMGo5qAIBsAIB&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">apps</a>, <a href="https://www.google.com/search?q=games&oq=games&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIHCAMQABiPAjIGCAQQRRg80gEINDg0M2owajmoAg6wAgE&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">games</a>, <a href="https://www.google.com/search?q=operating+systems&oq=operating+systems&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDkyMjVqMGo5qAIBsAIB&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">systems</a>, and <a href="https://en.m.wikipedia.org/wiki/Website">websites</a> tailored to meet your unique needs.
+                    Our team of dedicated <a href="https://www.professionals.com">professionals</a> is passionate about <a href="https://www.technology.com">technology</a> and innovation, committed to delivering solutions that drive success and enhance user experiences.
+                    Whether you're looking to create <a href="https://www.google.com/search?q=apps&oq=apps&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGI8CMgcIAhAAGI8C0gEIMjI0MGowajSoAgKwAgE&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">apps</a>, an engaging game, a robust system, or a dynamic website, we have the expertise and creativity to turn your vision into reality.
+                    <a href="https://github.com/Xcom01">Join us</a> on a journey of technological excellence and see how we can help you achieve your goals.</p>
+            </div>
+        </div>
+        <br>
+          <p><b>Visit us on <a href="https://github.com/Xcom01">GitHub</a></b><br>
+        <i>GitHub</i> is a web-based platform used primarily for version control and collaborative <a href="https://www.google.com/search?q=software+design&oq=software+&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBwgCEAAYjwIyBwgDEAAYjwLSAQg1MDkyajBqOagCAbACAQ&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8 ">software</a> <a href="https://www.google.com/search?q=software+development&oq=software+development+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDgwMjRqMGo5qAIOsAIB&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">development</a>. It uses <a href="https://www.git-scm.com/">Git</a>, a distributed version control <a href="https://www.google.com/search?q=operating+system&oq=operating+system+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAEMgcIChAAGIAEMgoICxAuGNQCGIAEMgcIDBAAGIAE0gEIMzg4N2owajmoAgCwAgE&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">system</a>, to <i>track</i> changes in <a href="https://www.computerscience.org/resources/what-is-coding-used-for/#:~:text=Coding%20tells%20a%20machine%20which,and%20other%20computer%2Dbased%20technologies.">code</a>, manage project versions, and facilitate collaboration among <a href="https://www.google.com/search?q=developers&oq=developers&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDY1MzhqMGo0qAIKsAIB&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">developers</a>.<br></p>
+  <br>
+                  <section>
+                  <div>
+              
+  <p>please <a href="https://github.com/Xcom01">Join us</a> on GitHub and get started we are also on <a href="https://www.instagram.com/direct/t/7354585184652921/">instagram</a></p>
+   </section>     
+                  
+                  <section>
+                  <button class="button" onclick="alert('To learn more about Xcommunications\n\nClick join us')">Learn more</button>
+        <a button class="button" href="https://github.com/Xcom01">Join us</a>
+         <br>
+<br>
+<hr>
+  <!--<h2 style="color: blue; font-weight: bold; width: 40%">About Us</h2>-->
+  <br>
+ <p><b><h3 style="color: blue">Mission</h3></b><br>Our mission is to empower individuals to <b style="color: green">unlock</b> their potential in the world of programming. We strive to provide comprehensive resources, personalized guidance, and a supportive <a href="https://www.instagram.com/direct/t/7354585184652921/">community</a> to help aspiring programmers of all levels. Through our platform, we aim to inspire <b>creativity</b>, foster innovation, and facilitate the development of high-quality <i>applications</i>, <i>games</i>, and <i><u>web pages</u></i>.</p>
+   <hr>               
+ <br>
+                  
+  <b><h3>Vision</b></h3>
+                  <br>
+<p>Our vision is to become the leading platform for discovering and nurturing programming talent globally. We aspire to create an inclusive and dynamic environment where learners can thrive, collaborate, and achieve their dreams. By continuously evolving and expanding our offerings, we <a href="">aim</a> to shape the future of technology and contribute to the advancement of digital solutions that enhance everyday life.</p>
+               
+ <hr>
+
+<h3><b>History</b></h3>
+ <br>
+<p>Founded with the goal of bridging the gap between aspiring programmers and the tech industry, our website has grown into a vibrant community of learners and experts. Over the years, we have developed a rich repository of resources, from tutorials and coding challenges to expert advice and project collaborations. Our commitment to quality and innovation has helped countless individuals start their journey in programming and advance their skills.</p>
+
+<h3><b><a href="https://www.instagram.com/direct/t/7354585184652921/">Members</a></b></h3>
+<br>
+<p>Our team 
+    is composed of experienced developers, educators, and tech enthusiasts who are passionate about sharing their knowledge and supporting the growth of our community. Each member brings a unique set of skills and expertise, contributing to the diverse and dynamic nature of our platform. Together, we are dedicated to making programming accessible and enjoyable for everyone.</p>
+ <hr>
+<h3><b>Contact Info</b></h3>
+<p>We are here to support you on your programming journey. For any inquiries, advice, or support, please reach out to us via:
+
+ <a href="mailto: matrixcrusaders@gmail.com">Email</a> <!--[our Email Address]-->
+ <a href="https://wa.me/2202204228">WhatsApp</a>                 
+ <!--+220 2204228 (message only, no calls)-->
+  <!--Address  [our Address, if applicable]-->
+<p>Feel free to connect with us anytime, and we will do our best to assist you.</p>
+
+  
+    <h4>Our services and <a href="https://github.com/orgs/Xcom01/repositories">projects</a></h4>
+ <p>We offer a wide range of services designed to help individuals and organizations harness the power of programming. Our expertise spans various domains, ensuring that we can cater to diverse needs and aspirations.</p>
+  
+   <h3>Programming <a href="https://codefinity.com/start/v8?utm_source=google&utm_medium=cpc&utm_campaign=20955067105&utm_content=161127022780&utm_term=coding&gad_source=1&gclid=CjwKCAjwyJqzBhBaEiwAWDRJVFtIhtmmAk6zdhVdfWtB5uRoexVesYTFttzjBX0lcOmpVm6fgpXMZRoCP90QAvD_BwE">Courses</a> and Tutorials</h3>
+                  <ul>
+   <li> Comprehensive courses for beginners and advanced learners</li>
+                  <br>
+   <li> <a href="https://www.w3schools.com/howto/default.asp">Step-by-step</a> tutorials on various programming languages and frameworks</li>
+                  <br>
+   <li> Interactive coding challenges and practice sessions</li>
+                        </ul>
+                  <br>
+                  
+       <h3>Personalized Mentorship and Advising</h3>
+                  <ul>
+                  <br>
+   <li> One-on-one mentorship for aspiring programmers</li>
+                  <br>
+   <li> Career advice and professional development guidance</li>
+                  <br>
+   <li> Tailored <a href="https://codefinity.com/start/v8?utm_source=google&utm_medium=cpc&utm_campaign=20955067105&utm_content=161127022780&utm_term=coding&gad_source=1&gclid=CjwKCAjwyJqzBhBaEiwAWDRJVIAuLEhM2ZEO4VQLLNxGgSBrgLKBY9e0oL_aZcV9YyZb0VU2MStNWxoCmGAQAvD_BwE">learning</a> paths to meet individual goals</li>
+            </ul>
+                  
+   <h3>Application Development</h3>
+   
+<!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8F2Zz5o9ErgbN4yfO6HzPBdZzzI4AXCyZqg&usqp=CAU" alt="Second Image">-->
+                  <ul>
+   <li> Custom software solutions for businesses and individuals</li>
+                  <br>
+   <li> End-to-end development of mobile and web applications</li>
+                  <br>
+   <li> Maintenance and updates for existing applications</li>
+                     </ul>
+                  
+ <h3> Game Development </h3>
+                  <ul>
+   <li> Creation of engaging and interactive games</li>
+                  <br>
+   <li> Development of <a href="https://www.google.com/search?q=educational+games&oq=educational+games+&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABDIHCAoQABiABDIHCAsQABiABDIHCAwQABiABNIBCDc2ODVqMGo0qAICsAIB&sourceid=chrome-mobile&ie=UTF-8">educational games</a> and gamified learning experiences</li>
+                  <br>
+   <li> Integration of advanced features like <a href="https://en.m.wikipedia.org/wiki/Artificial_intelligence_in_video_games">AI</a> and <a href="https://maticz.com/virtual-reality-gaming#:~:text=Virtual%20reality%20gaming%20is%20an,Here%20is%20how%20it%20works.">VR</a> in games</li>
+                      </ul>
+ <h3> Web Design and Development</h3>
+                  <ul>
+   <li> Designing visually appealing and user-friendly websites</li>
+                  <br>
+   <li> Building responsive and dynamic web pages</li>
+                  <br>
+   <li> <a href="https://dotcontrol.com/search-engine-optimization/?gad_source=1&gclid=CjwKCAjwyJqzBhBaEiwAWDRJVHdK6D3hIwToPyGPDOI21SoKy4eS4-ucrdWdVM-rbaGRn-VUzTybbBoChAoQAvD_BwE">SEO</a> optimization and performance enhancement</li>
+                     </ul>
+                  <br>
+                  <hr>
+<h3> Details of our Services </h3>
+
+<h4>Programming Courses and Tutorials</h4>
+<p>Our courses cover a wide range of programming languages including <a href="https://www.w3schools.com/python/default.asp">Python</a>, <a href="https://www.w3schools.com/js/default.asp">JavaScript</a>, <a href="https://www.w3schools.com/java/default.asp">Java</a>,<a href="https://www.w3schools.com/cpp/default.asp">C++</a>, and more. Each course is designed to build a strong foundation and gradually introduce more complex concepts. Our interactive tutorials and coding challenges help reinforce learning and provide practical experience.</p>
+  <br>
+<h4>Personalized Mentorship and Advising</h4>
+<p>We understand that every learner has unique needs and goals. Our personalized <a href="https://github.com/Xcom01">mentorship</a> program pairs you with experienced developers who can provide targeted advice, help you overcome challenges, and guide you towards achieving your career objectives. Whether you are looking to break into the tech industry or advance your skills, our mentors are here to help.</p>
+   <br>
+<h4>Application Development</h4>
+<p>Our <a href="https://www.instagram.com/direct/t/7354585184652921/">team</a> of skilled developers is adept at creating custom applications tailored to your specific needs. From initial concept to deployment, we handle every aspect of the development process. We specialize in creating intuitive and robust applications that provide a seamless user experience and meet your business requirements.</p>
+  <br>
+<h4>Game Development</h4>
+<p>We bring ideas to life by developing</p><p><b style="color: green">games</b> that are not only fun but also educational. Our game development services include designing <a href="https://jashentertainment.com/blog/Level-Design-The-Key-to-Captivating-Gameplay">captivating gameplay</a>, creating <a href="https://www.designcrowd.com/graphic-design-gallery/descriptive/aesthetics/stunning-graphics"></a>stunning graphics</a>, and incorporating the latest technologies to enhance the gaming experience. Whether it’s for entertainment or education, we deliver games that engage and inspire.</p>
+  <br>
+<h4>Web Design and Development</h4>
+<p>We craft websites that are both <b style="color: pink">beautiful</b> and <b style: color="yellow">functional</b>. Our web design services focus on creating aesthetically pleasing <a href="#">layouts</a>, while our development team ensures that the websites are responsive, fast, and optimized for search engines. We aim to deliver websites that not only look great but also drive results for your <b style="color: green">business</b>.</p>
+    <header>
+        <h1>News</h1>
+    </header>
+    <section class="news-articles">
+       <!--<h4>News Article</h4>-->
+                  
+    <img style="width: 80%" src="https://s.france24.com/media/display/e6279b3c-db08-11ee-b7f5-005056bf30b7/w:1280/p:16x9/news_en_1920x1080.jpg" alt="News Image">
+
+        <article class="news-item">
+            <h3><a href="https://www.bbc.com/">BBC News</a></h3>
+            <p>BBC News is the news division of the British Broadcasting Corporation (BBC), providing news and <a href="https://www.bbc.com/search?q=Current%20Affairs&edgeauth=eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJrZXkiOiAiZmFzdGx5LXVyaS10b2tlbi0xIiwiZXhwIjogMTcxODA2MDYyMCwibmJmIjogMTcxODA2MDI2MCwicmVxdWVzdHVyaSI6ICIlMkZzZWFyY2glM0ZxJTNEQ3VycmVudCUyNTIwQWZmYWlycyJ9.jxvoLx_zMvEWgUM-MuNnZaYcRRlJAMhPq5n-1x0H9R4">current affairs</a> coverage in the UK and around the world. Known for its comprehensive reporting, BBC News delivers content through television, radio, and online platforms. It operates various services including a 24-hour news channel, regional news, and international news. <b style="  ">BBC</b> News is recognized for its impartial and reliable journalism, adhering to high standards of accuracy and fairness.</p>
+        </article>
+        <article class="news-item">
+            <h3><a href="https://edition.cnn.com/">CNN News</a></h3>
+            <p>CNN News, or Cable News Network, is a major American news channel founded in 1980 by <a href="https://www.google.com/search?gs_ssp=eJzj4tDP1Tcwz8hOMWD04ipJTVEoKS3KSy0CAElABv4&q=ted+turner&oq=ted+tu&gs_lcrp=EgZjaHJvbWUqBwgBEC4YgAQyBggAEEUYOTIHCAEQLhiABDIGCAIQRRg8MgYIAxBFGDwyBwgEEC4YgAQyEwgFEC4YrwEYxwEYgAQYmAUYmgUyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgAQyBwgKEAAYgAQyBwgLEAAYgAQyBwgMEAAYgATSAQg4NDYyajBqNKgCAbACAQ&client=ms-android-transsion-itel-rev2&sourceid=chrome-mobile&ie=UTF-8">Ted Turner</a>. It was the first television channel to provide 24-hour news coverage and the first all-news television channel in the United States. <b>CNN</b> offers a wide range of news and current affairs programming, including breaking news, in-depth analysis, and investigative reporting. The network broadcasts globally, with numerous international bureaus, making it a prominent source for international news. CNN is known for its live coverage of major events and comprehensive news delivery across television and digital platforms.</p>
+        </article>
+        <!-- Add more news articles as needed -->
+    </section>
+    <section class="blog-posts">
+        <!--<h2>Blog Posts</h2>-->
+        <article class="blog-item">
+            <h3><a href="https://www.w3schools.com/">Join <b>W3Schools</b> and Start Your Programming Journey with Xcommunications</a></h3>
+                  <br>
+            <p>If you are passionate about joining <b style="color: gray">Xcommunication</b> and want to enhance your programming skills, there's no better place to start than <a href="https://www.w3schools.com/">W3Schools</a>!</p>
+              <br>
+              
+              <p>W3Schools offers a comprehensive and user-friendly platform for learning a wide range of programming languages and technologies. Whether you're a beginner or looking to expand your knowledge, W3Schools provides tutorials, references, and interactive examples to help you master the skills you need.</p>
+
+     <h4>Why Join W3Schools?</h4>
+                <ol>
+<li>Extensive Resources</li> 
+<p>Access a vast library of tutorials covering <a href="https://www.w3schools.com/html/default.asp">HTML</a>, <a href="https://www.w3schools.com/css/default.asp">CSS</a>, <a href="https://www.w3schools.com/js/default.asp">JavaScript</a>, <a href="https://www.w3schools.com/python/default.asp">Python</a>, <a href="https://www.w3schools.com/sql/default.asp">SQL</a>, and more.</p>
+  <br>
+<li>Interactive Learning</li> 
+<p>Engage with hands-on <a href="https://www.w3schools.com/html/html_examples.asp">examples</a> and exercises to reinforce your understanding.</p>
+  <br>
+<li>Free and Accessible</li>
+<p>Learn at your own pace without any cost.</p>
+ <br>
+<li>Certification</li> 
+<p>Earn certifications to showcase your skills and boost your resume.</p>
+  <br>
+<li>Community Support</li> 
+<p><a href="https://www.w3schools.com/">join</a> a community of learners and get support from experts and peers.</p>
+  </ol>
+                <br>
+<h4>How to Get Started</h4>
+                <ol>
+<li>Create an Account</li> 
+                <br>
+<p><a href="https://profile.w3schools.com/login?redirect_url=https%3A%2F%2Fwww.w3schools.com%2F">Sign</a> up on W3Schools to track your progress and access premium features.</p>
+  <br>
+<li>Explore Tutorials</li> 
+                <br>
+<p>Browse through the tutorials and start learning the languages and technologies that interest you.</p>
+  <br>
+<li><a href="https://www.w3schools.com/">Practice</a> Regularly</li> 
+                <br>
+<p>Use the interactive coding exercises to <a href="https://www.w3schools.com/">practice</a> and solidify your <b style="color: purple">skills</b>.</p>
+  <br>
+<li><a href="https://www.w3schools.com/js/js_exam.asp">Earn</a> Certifications</li>                 
+<p>Take quizzes and exams to earn certifications that demonstrate your expertise.</p>
+  <br>
+<p>Taking the initiative to <a href="https://www.wolfram.com/wolfram-u/courses/programming-applications/?src=google&906&gad_source=1&gclid=CjwKCAjwyJqzBhBaEiwAWDRJVO4a5bOSdRM-Uw0U3K0YwYl4UOd5to-5_95rDF9oaoo8u3LfFt_NtxoCEfIQAvD_BwE">learn</a> and <a href="https://www.w3schools.com/">improve</a> your programming skills at <a href="https://www.w3schools.com/">w3schools</a> is a fantastic step towards joining <b style="color: green">Xcommunication</b> and succeeding in the tech industry. Don't wait—<a href="https://www.w3schools.com/">start</a> learning to code <b>today!</b></p>
+              <br>
+              <br>
+              
+              <h5 style="color: red">YouTube video</h5>
+    <iframe width="90%" height="315" src="https://www.youtube.com/embed/zOjov-2OZ0E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <hr>              
+              <!--  </article>
+        <article class="blog-item">
+            <h3><a href="#">Sample Blog Post 2</a></h3>
+            <p>Brief introduction to the blog post content.</p>
+        </article>-->
+        <!-- Add more blog posts as needed -->
+    </section>
+   <!--<section class="contact-info">-->
+                  
+        <!--<h2>Get in Touch</h2>
+        <form action="#" method="post" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+           <button type="submit">Send Message</button>
+        </form>-->
+                  
+        <div class="contact-details">
+            <h3>Contact Information</h3>
+            <p>Email: <a href="matrixcrusaders@gmail.com">Email</a></p>
+            <p>Phone: <a href="tel:+2202204228">Number</a> (message only, no calls, WhatsApp available)</p>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <!--<a href="#" class="social-icon">Facebook</a>-->
+            <a style="color: white; background-color: black" href="https://x.com/DadSankare32414?s=08" class="social-icon">Twitter</a>
+            <a style="color: white; background-color: blue" href="https://www.linkedin.com/in/ousman-sankareh-34ab4b296" class="social-icon">LinkedIn</a>
+            <a style="color: white; background-color: pink; border: yellow" href="https://www.instagram.com/direct/t/7354585184652921/" class="social-icon">Instagram</a>
+        </div>
+    </section>
+    <footer>
+                  
+                  </section>
+                  
+  <br>
+      <!--<button style="padding: 30px; border-radius: 9px; color: black; background-color: white" href="#">refreash</button>-->
+  <br>
+  <br>
+         <footer>
+        <p>&copy; 2024 Xcommunication. All rights reserved.</p>
+    </footer>
+      
+    <script>
+            alert('Welcome to Xcommunications');
+        
+        function toggleVisibility(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === 'none' || element.style.display === '') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+      
+        Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+      
+ Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("main").style.marginLeft = "0";
+}
+      
+                  window.googleSearch = function() {
+                const query = document.getElementById("search-box").value;
+                if (query) {
+                    const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+                    window.open(url, "_blank");
+                }
+            }
+    </script>    
+ 
+</body>
+</html>

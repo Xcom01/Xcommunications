@@ -124,3 +124,58 @@ button:hover {
     }
 }
 
+.mission-and-vision {
+    display: flex;
+    justify-content: space-evenly;
+}
+.about-us-section {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    background: linear-gradient(
+        #1b263b 20%,
+        #f0f0f0 
+    );
+    margin: 1rem auto;
+}
+.card {
+    border: 1px solid #120b1d;
+    width: 22rem;
+    padding: 16px;
+    border-radius: 26px;
+    text-align: center;
+    background-color: #f0f0f0;
+    box-shadow: 2px 2px 2px;
+}
+.project-and-service {
+    padding: 20px;
+}
+.service-header {
+    text-align: center;
+    text-decoration: underline;
+    color: #1b263b;
+}
+.service-header-text {
+    text-align: center;
+}
+.service-img, .app-img, .system-img, .website-img {
+  border-radius: 9%;
+  box-shadow: 2px 2px 2px 2px #120b1d;
+}
+.games-text, .app-text, .system-text, .website-text {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 25px;
+    color: #1b263b;
+}
+.games, .apps, .systems, .website {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.games-about, .app-about, .system-about, .website-about {
+    position: relative;
+    left: 3rem;
+    top: 9rem;
+    font-size: 20px;
+    width: 50%;
+}
